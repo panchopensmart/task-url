@@ -21,6 +21,6 @@ class m250805_062124_create_click_table extends Migration
 
     public function safeDown()
     {
-        $this->dropTable('clicks');
+        $this->dropTable('click');
     }
 }
