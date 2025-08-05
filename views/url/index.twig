@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Сократитель ссылок</title>
+</head>
+<body>
+
+<h1>Сократи ссылку</h1>
+
+<form id="shortener-form" method="post">
+    <label>
+        <input type="text" name="url" placeholder="Вставьте ссылку">
+    </label>
+    <input type="hidden" name="_csrf" value="{{ app.request.csrfToken }}">
+    <button type="submit">Сократить</button>
+</form>
+
+<div id="result"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $('#shortener-form').on('submit', function(e) {
+        e.preventDefault();
+        $.post('/url/shorten', $(this).serialize(), function(data) {
+            $('#result').html('Сокращённая ссылка: <a href="' + data.shortUrl + '">' + data.shortUrl + '</a>');
+        });
+    });
+</script>
+
+</body>
+</html>

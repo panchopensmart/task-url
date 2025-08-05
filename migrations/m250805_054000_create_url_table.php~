@@ -1,0 +1,27 @@
+<?php
+
+use yii\db\Migration;
+
+/**
+ * Handles the creation of table `{{%url}}`.
+ */
+class m250805_054000_create_url_table extends Migration
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function safeUp()
+    {
+        $this->createTable('{{%url}}', [
+            'id' => $this->primaryKey(),
+        ]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function safeDown()
+    {
+        $this->dropTable('{{%url}}');
+    }
+}
